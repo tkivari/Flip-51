@@ -1,2 +1,11 @@
-# Flip-51
-all your grocery shopping needs in one place :)
+# Marionette UI Sample
+======================
+
+
+Build Steps
+======================
+
+requirements:  handlebars, SASS, npm, etc
+
+build steps:
+- ./build.sh

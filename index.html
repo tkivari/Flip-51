@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UI Demo</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+  <!-- Vendor Scripts -->
+  <script src="assets/js/vendor/simple-require.js"></script>
+  <script src="assets/js/vendor/jquery.min.js"></script>
+  <script src="assets/js/vendor/moment.min.js"></script>
+  <script src="assets/js/vendor/underscore-min.js"></script>
+  <script src="assets/js/vendor/backbone-min.js"></script>
+  <script src="assets/js/vendor/handlebars.runtime.js"></script>
+  <script src="assets/js/vendor/backbone.marionette.min.js"></script>
+  <script src="assets/js/vendor/backbone.marionette.handlebars.min.js"></script>
+  <script src="assets/js/vendor/moment.min.js"></script>
+
+  <!-- App JS -->
+  <script src="assets/js/app/application.js"></script>
+  <script src="assets/js/app/router.js"></script>
+  <script src="assets/js/app/precompiled_templates.js"></script>
+
+  <!-- Modules -->
+  <script src="assets/js/app/modules/main.module.js"></script>
+
+  <!-- Utilities -->
+  <script src="assets/js/app/utilities/ajax_request.js"></script>
+
+  <!-- Services -->
+  <script src="assets/js/app/services/base/base.service.js"></script>
+  <script src="assets/js/app/services/dashboard.service.js"></script>
+  <script src="assets/js/app/services/checkout51.service.js"></script>
+  <script src="assets/js/app/services/flipp.service.js"></script>
+
+  <!-- Controllers -->
+  <script src="assets/js/app/controllers/dashboard.controller.js"></script>  
+
+  <!-- Views -->
+  <script src="assets/js/app/views/layouts/index.js"></script> 
+
+
+  <!-- Start App -->
+  <script type="text/javascript">
+      $.getScript('config/environment.js').done(function (data, textStatus, jqxhr) {
+        var env = window.env.development;
+        
+        var bootstrap = function(){
+          var app = require("App");
+          app.start({
+            env: env
+          });
+          app.layout.render();
+        };
+
+        bootstrap();
+      });
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

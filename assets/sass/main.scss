@@ -1,0 +1,21 @@
+@import '_header';
+@import '_navbar';
+@import '_content';
+
+body {
+  font: 100% Gotham, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  #app {
+
+    width: 100%;
+    min-height: 500px;
+
+    .clear {
+      clear: both;
+    }
+  }
+}
