@@ -17,7 +17,7 @@ define("App.Controller.Dashboard", function(module) {
             this.checkout_51_service = new Checkout51Service();
 
             this.listenTo(this.router, "route:showDashboard", this.showDashboard);
-            //this.listenTo(this.vent, "flipp:searchByPostalCode", this.searchByPostalCode);
+            this.listenTo(this.vent, "flipp:searchByPostalCode", this.searchByPostalCode);
         },
 
         showDashboard: function() {
@@ -29,8 +29,9 @@ define("App.Controller.Dashboard", function(module) {
             this.layout.content_area.show(view);
         },
 
-        searchByPostalCode: function() {
-
+        searchByPostalCode: function(model, view) {
+            console.log('here!');
+            this.checkout_51_service.getDeals();
         }
     });
 

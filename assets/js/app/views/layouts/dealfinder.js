@@ -27,8 +27,7 @@ define("App.Views.DealFinderLayout", function(module) {
         },
 
         searchByPostalCode: function() {
-            console.log(this.model.attributes);
-            this.vent.trigger("flipp:searchByPostalCode");
+            this.vent.trigger("flipp:searchByPostalCode", this.model, this.view);
         },
 
         render: function() {
