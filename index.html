@@ -13,6 +13,7 @@
   <script src="assets/js/vendor/backbone-min.js"></script>
   <script src="assets/js/vendor/handlebars.runtime.js"></script>
   <script src="assets/js/vendor/backbone.marionette.min.js"></script>
+  <script src="assets/js/vendor/backbone.stickit.js"></script>
   <script src="assets/js/vendor/backbone.marionette.handlebars.min.js"></script>
   <script src="assets/js/vendor/moment.min.js"></script>
 
@@ -37,7 +38,8 @@
   <script src="assets/js/app/controllers/dashboard.controller.js"></script>  
 
   <!-- Views -->
-  <script src="assets/js/app/views/layouts/index.js"></script> 
+  <script src="assets/js/app/views/layouts/index.js"></script>
+  <script src="assets/js/app/views/layouts/dealfinder.js"></script>
 
 
   <!-- Start App -->
@@ -47,10 +49,11 @@
         
         var bootstrap = function(){
           var app = require("App");
-          app.start({
+            app.layout.render();
+            app.start({
             env: env
           });
-          app.layout.render();
+
         };
 
         bootstrap();

@@ -6,13 +6,12 @@ define("App.Views.DealFinderLayout", function(module) {
             this.model = new Backbone.Model();
             this.results_collection = new Backbone.Collection();
 
-            this.results_view = new Backbone.CollectionView({
+            this.results_view = Marionette.CollectionView.extend({
                 vent: this.vent,
                 collection: this.results_collection
             });
         },
 
-        el: 'div',
         template: Handlebars.templates["layouts/deal_finder"],
 
         events: {
@@ -28,13 +27,16 @@ define("App.Views.DealFinderLayout", function(module) {
         },
 
         searchByPostalCode: function() {
+            console.log(this.model.attributes);
             this.vent.trigger("flipp:searchByPostalCode");
         },
 
         render: function() {
+            this.unstickit();
             Marionette.LayoutView.prototype.render.call(this);
-
-            this.search_results.show(this.results_view);
+            //this.search_results.show(this.results_view);
+            console.log('here2');
+            this.stickit();
         }
 
     });

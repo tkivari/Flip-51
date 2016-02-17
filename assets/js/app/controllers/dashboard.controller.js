@@ -9,28 +9,30 @@ define("App.Controller.Dashboard", function(module) {
 
     var DashboardController = Marionette.Object.extend({
         initialize: function(options){
-        this.vent = options.vent;
-        this.router = options.router;
-        this.layout = options.layout;
-        this.service = new DashboardService();
-        this.flipp_service = new FlippService()
+            this.vent = options.vent;
+            this.router = options.router;
+            this.layout = options.layout;
+            this.service = new DashboardService();
+            this.flipp_service = new FlippService();
+            this.checkout_51_service = new Checkout51Service();
 
-        this.listenTo(this.router, "route:showDashboard", this.showDashboard);
-        this.listenTo(this.vent, "flipp:searchByPostalCode", this.searchByPostalCode);
-    },
+            this.listenTo(this.router, "route:showDashboard", this.showDashboard);
+            //this.listenTo(this.vent, "flipp:searchByPostalCode", this.searchByPostalCode);
+        },
 
-    showDashboard: function() {
-        var view = new DealFinderLayoutView({
-            vent: this.vent
-        });
+        showDashboard: function() {
+            var view = new DealFinderLayoutView({
+                vent: this.vent
+            });
 
-        this.layout.content_area.show(view);
-    },
+            //console.log(this.layout)
+            this.layout.content_area.show(view);
+        },
 
-    searchByPostalCode: function() {
+        searchByPostalCode: function() {
 
-    }
-  });
+        }
+    });
 
-  module.exports = DashboardController;
+    module.exports = DashboardController;
 });
