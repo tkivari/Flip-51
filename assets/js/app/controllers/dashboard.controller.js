@@ -13,14 +13,16 @@ define("App.Controller.Dashboard", function(module) {
             this.router = options.router;
             this.layout = options.layout;
             this.service = new DashboardService();
-            this.flipp_service = new FlippService();
-            this.checkout_51_service = new Checkout51Service();
+            this.flipp_service = new FlippService({ vent: this.vent });
+            this.checkout_51_service = new Checkout51Service({ vent: this.vent });
 
             this.listenTo(this.router, "route:showDashboard", this.showDashboard);
             this.listenTo(this.vent, "flipp:searchByPostalCode", this.searchByPostalCode);
         },
 
         showDashboard: function() {
+            this.checkout_51_service.getDeals();
+
             var view = new DealFinderLayoutView({
                 vent: this.vent
             });
@@ -30,8 +32,16 @@ define("App.Controller.Dashboard", function(module) {
         },
 
         searchByPostalCode: function(model, view) {
-            console.log('here!');
-            this.checkout_51_service.getDeals();
+            var controller = this;
+
+            if (model.get("postal_code")) {
+                _.each(this.checkout_51_service.offers, function (offer) {
+                    controller.flipp_service.getSalesByOffer(offer, model.get("postal_code"));
+                })
+            }
+
+            controller = null;
+
         }
     });
 

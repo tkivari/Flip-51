@@ -4,8 +4,10 @@ define("App.Service.Checkout51", function(module) {
 
     var Checkout51Service = BaseService.extend({
 
-        initialize: function() {
-            this.offers = {};
+        initialize: function(options) {
+            this.offers = [];
+            this.vent = options.vent;
+            Checkout51Service.__super__.initialize.apply(this, arguments);
         },
 
         getDeals: function() {
@@ -38,13 +40,17 @@ define("App.Service.Checkout51", function(module) {
 
         getDealPages: function(url, type, data, page) {
             var view = this;
-            this.ajax.send_request(url, "GET", data)
+            this.ajax.get(url, data)
             .done(function(response) {
-                console.log(response.last_page);
+                if(response.offers) {
+                    view.offers = view.offers.concat(response.offers);
+                }
                 ++page;
                 data.page = page;
                 if (response.last_page == false) {
                     view.getDealPages(url,type,data,page)
+                } else {
+                    view.vent.trigger('checkout51:loaded');
                 }
             })
         }

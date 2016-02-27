@@ -8,18 +8,13 @@ define("App", function(module){
   App.addInitializer(function(options){
     window.ASSETS_PATH = options.assets_path;
     window.API_URL = options.api;
-
-    console.log(options);
   });
 
   App.layout = new RootLayout();
   
   App.on("start", function(){
 
-    console.log("started!");
-
     // Init main module
-
     var router = new Router();
 
     App.mainModule = new MainModule({

@@ -1,4 +1,22 @@
 #app_content {
   overflow:hidden;
   min-height: 500px;
+
+  #enterPostalCode {
+    display: inline-block;
+    margin-top: -3px;
+  }
+
+  #postal_code {
+    display: inline;
+    width: 150px;
+  }
+
+  .sale_item {
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    border-radius: 5px;
+    background: white;
+    margin: 0 0 5px;
+  }
 }
