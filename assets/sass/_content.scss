@@ -13,10 +13,28 @@
   }
 
   .sale_item {
-    border: 1px solid #e8e8e8;
+    border: 1px solid #3ADF00;
     padding: 10px;
     border-radius: 5px;
-    background: white;
-    margin: 0 0 5px;
+    background: #F2FBEF;
+    margin: 0 0 5px 25px;
+    color: #0B610B;
+
+    #extra_info {
+      font-size: 10px;
+    }
+  }
+
+  .deal_details {
+    border: 1px solid #F3E2AA;
+    padding: 10px;
+    background: #FBF5EF;
+    margin: 0 0 4px;
+    border-radius: 5px;
+    color: #FF8000;
+  }
+
+  .title {
+    font-weight: bold;
   }
 }

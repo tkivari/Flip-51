@@ -1,12 +1,17 @@
 <div class="deal_parent">
 
-    <div class="deal_details"></div>
+    <div class="deal_details">
+        <div id="name" class="title">{{name}}</div>
+        <div id="description">{{description}}</div>
+        <div id="cash_back">${{cash_back}} cash back</div>
+    </div>
     <div class="sales">
         {{#each sale_items}}
             <div class="sale_item">
+                <div id="price" class="title">{{#if current_price}}{{pre_price_text}}${{current_price}} {{price_text}} at {{/if}}{{merchant}}</div>
                 <div id="name">{{name}}</div>
-                <div id="merchant">{{merchant}}</div>
-                <div id="price">{{price}}</div>
+                <div id="extra_info">{{sale_story}}</div>
+
             </div>
         {{/each}}
     </div>

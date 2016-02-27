@@ -17,11 +17,23 @@
     display: inline;
     width: 150px; }
   #app_content .sale_item {
-    border: 1px solid #e8e8e8;
+    border: 1px solid #3ADF00;
     padding: 10px;
     border-radius: 5px;
-    background: white;
-    margin: 0 0 5px; }
+    background: #F2FBEF;
+    margin: 0 0 5px 25px;
+    color: #0B610B; }
+    #app_content .sale_item #extra_info {
+      font-size: 10px; }
+  #app_content .deal_details {
+    border: 1px solid #F3E2AA;
+    padding: 10px;
+    background: #FBF5EF;
+    margin: 0 0 4px;
+    border-radius: 5px;
+    color: #FF8000; }
+  #app_content .title {
+    font-weight: bold; }
 
 body {
   font: 14px Gotham, sans-serif;
