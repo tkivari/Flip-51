@@ -17,7 +17,6 @@ define("App.Views.DealFinderLayout", function(module) {
 
         addOfferSales: function(offer) {
             this.collection.add(offer);
-            console.log(this.collection);
         }
 
     });
