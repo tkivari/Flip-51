@@ -11,19 +11,21 @@ define("App.Service.Flipp", function(module) {
 
         getSalesByOffer: function(offer, postal_code) {
             var url = window.env.development.flipp_api + "items/search";
+            var offer_name = offer.name;
+            if (offer_name.indexOf(":") > -1) {
+                var arr = offer_name.split(":");
+                offer_name = arr[1];
+            }
             var data = {
                 locale: 'en-ca',
                 postal_code: postal_code,
-                q: offer.name
+                q: offer_name
             };
 
             if (offer.display_type == OfferTypes.standard && offer.remaining > 0) {
                 var service = this;
                 this.ajax.get(url, data)
                     .done(function (response) {
-                        //offer.sale_items = response.items;
-                        service.vent.trigger("dealfinder:addOfferSales". offer);
-
                         offer.sale_items = [];
 
                         var addSaleItems = function() {
