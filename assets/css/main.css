@@ -34,6 +34,11 @@
     color: #FF8000; }
   #app_content .title {
     font-weight: bold; }
+  #app_content .merchant_logo {
+    width: 100px;
+    float: left; }
+  #app_content .deal_info {
+    float: left; }
 
 body {
   font: 14px Gotham, sans-serif;

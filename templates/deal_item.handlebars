@@ -8,10 +8,13 @@
     <div class="sales">
         {{#each sale_items}}
             <div class="sale_item">
-                <div id="price" class="title">{{#if current_price}}{{pre_price_text}}${{current_price}} {{price_text}} at {{/if}}{{merchant}}</div>
-                <div id="name">{{name}}</div>
-                <div id="extra_info">{{sale_story}}</div>
-
+                <div class="merchant_logo"><img src="{{merchant_logo}}"/></div>
+                <div class="deal_info">
+                    <div id="price" class="title">{{#if current_price}}{{pre_price_text}}${{current_price}} {{price_text}} at {{/if}}{{merchant}}</div>
+                    <div id="name">{{name}}</div>
+                    <div id="extra_info">{{sale_story}}</div>
+                </div>
+                <div class="clear"></div>
             </div>
         {{/each}}
     </div>
